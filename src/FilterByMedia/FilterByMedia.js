@@ -5,7 +5,13 @@ class FilterByMedia extends React.Component {
 
   render() {
     return (
-      <div>FilterByMedia form</div>
+      <select>
+        <option value="ebooks">E-Books</option>
+        <option value= "free-ebooks">Free E-Books</option>
+        <option value= "full">Full</option>
+        <option value="paid-ebooks">Paid E-Books</option>
+        <option value= "partial">Partial</option>
+      </select>
     )
   }
 }
