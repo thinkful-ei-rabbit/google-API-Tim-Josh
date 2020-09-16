@@ -1,6 +1,6 @@
 import React from 'react';
 import FilterByMedia from '../FilterByMedia/FilterByMedia';
-import FilterByBookType from '../FilterByBookType/FilterByBookType';
+import FilterByType from '../FilterByType/FilterByType';
 
 
 function Search (props) {
@@ -8,13 +8,22 @@ function Search (props) {
   
     return (
       <div>
-        <form onSubmit={props.fetchBooks} className= "boomark-search-form"> 
-        <label for= "search for a book" />
-        <input name= "book-search" type= "text" placeholder = "your book" /> 
-        <button type= 'submit'>Search</button>
+        <form className= "boomark-search-form" name="searchForm"> 
+          <label htmlFor= "search for a book" />
+          <input 
+            type='text'
+            id= 'search-form'
+            name='searchTerm'
+            onChange={(ev) => props.inputChange(ev)}
+            value={props.reset}/>           
+          <button type='button' value='submit' onClick={props.fetchBooks}>Search</button>
         </form>
-        <FilterByMedia />
-        <FilterByBookType />
+        <div className="filterBars">
+          <FilterByMedia         
+            inputChange={props.inputChange}/>
+          <FilterByType        
+            inputChange={props.inputChange}/>
+        </div>
       </div>
     )
   }
